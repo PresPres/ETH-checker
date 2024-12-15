@@ -1,2 +1,4 @@
 # ETH-checker
-ethereum balance checker
+install 
+ Install Dependencies
+ npm install ethers
