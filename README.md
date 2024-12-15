@@ -1,4 +1,1 @@
-# ETH-checker
-install 
- Install Dependencies
- npm install ethers
+npm install ethers
