@@ -1,0 +1,24 @@
+const { ethers } = require('ethers');
+
+// Replace with your private key and RPC URL
+const PRIVATE_KEY = 'YOUR_PRIVATE_KEY'; // Example: '0xabc123...'
+const RPC_URL = 'https://mainnet.infura.io/v3/YOUR_INFURA_PROJECT_ID'; // Or any other RPC provider (e.g., Alchemy, QuickNode)
+
+// Initialize provider and wallet
+const provider = new ethers.JsonRpcProvider(RPC_URL); // Connect to Ethereum network
+const wallet = new ethers.Wallet(PRIVATE_KEY, provider);
+
+(async () => {
+  try {
+    // Fetch the wallet's balance
+    const balance = await wallet.getBalance();
+
+    // Convert balance from wei to ether
+    const balanceInEther = ethers.formatEther(balance);
+
+    console.log(`Address: ${wallet.address}`);
+    console.log(`Balance: ${balanceInEther} ETH`);
+  } catch (error) {
+    console.error('Error fetching balance:', error);
+  }
+})();
